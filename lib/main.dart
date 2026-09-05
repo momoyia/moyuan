@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peiban_app/constants/app_info.dart';
 import 'package:peiban_app/constants/app_theme.dart';
 import 'package:peiban_app/screens/auth/splash_screen.dart';
 import 'package:peiban_app/services/app_state.dart';
@@ -22,7 +23,7 @@ class _PeibanAppState extends State<PeibanApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '相恋',
+      title: AppInfo.name,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       home: SplashScreen(appState: widget.appState),

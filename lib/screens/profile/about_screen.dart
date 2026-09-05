@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peiban_app/constants/app_assets.dart';
 import 'package:peiban_app/constants/app_colors.dart';
+import 'package:peiban_app/constants/app_info.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -30,10 +31,10 @@ class AboutScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const Center(
+          Center(
             child: Text(
-              '相恋',
-              style: TextStyle(
+              AppInfo.name,
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w800,
                 color: AppColors.slate900,
@@ -41,10 +42,10 @@ class AboutScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          const Center(
+          Center(
             child: Text(
-              '陪你练，也陪你变好',
-              style: TextStyle(
+              AppInfo.slogan,
+              style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: AppColors.brandPink,
@@ -60,10 +61,10 @@ class AboutScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppColors.slate100),
             ),
-            child: const Text(
-              '相恋是一款面向年轻用户的健身减脂应用，提供科学训练计划、轻食营养指南与运动数据追踪。我们希望用简洁好用的体验，陪你和 TA 一起坚持运动、管理身材、记录每一次进步。',
+            child: Text(
+              '${AppInfo.name}是一款面向年轻用户的健身减脂应用，提供科学训练计划、轻食营养指南与运动数据追踪。我们希望用简洁好用的体验，与陌缘一起坚持运动、管理身材、记录每一次进步。',
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
                 color: AppColors.slate600,
                 height: 1.7,

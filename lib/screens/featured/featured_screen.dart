@@ -7,6 +7,9 @@ import 'package:peiban_app/models/workout_action.dart';
 import 'package:peiban_app/screens/featured/action_detail_screen.dart';
 import 'package:peiban_app/screens/featured/article_detail_screen.dart';
 import 'package:peiban_app/screens/featured/topic_detail_screen.dart';
+import 'package:peiban_app/screens/featured/topic_recommend_loading_screen.dart';
+import 'package:peiban_app/services/storage_service.dart';
+import 'package:peiban_app/widgets/workout_focus_dialog.dart';
 class FeaturedScreen extends StatefulWidget {
   const FeaturedScreen({super.key});
 
@@ -20,6 +23,31 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
   List<FeaturedTopic> get _topics => MockData.topics;
   List<WorkoutAction> get _actions => MockData.actions;
   List<Article> get _articles => MockData.articles;
+
+  Future<void> _openRecommendedTopic(BuildContext context) async {
+    var focusId = await StorageService.loadFeaturedWorkoutFocus();
+
+    if (focusId == null || focusId.isEmpty) {
+      if (!context.mounted) return;
+      focusId = await showDialog<String>(
+        context: context,
+        barrierDismissible: false,
+        builder: (_) => const WorkoutFocusDialog(),
+      );
+      if (focusId == null || focusId.isEmpty || !context.mounted) return;
+      await StorageService.saveFeaturedWorkoutFocus(focusId);
+    }
+
+    if (!context.mounted) return;
+    final topic = MockData.recommendedTopicForFocus(focusId);
+
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => TopicRecommendLoadingScreen(topic: topic),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,14 +100,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                   final topic = _topics[index];
                   return _TopicCard(
                     topic: topic,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => TopicDetailScreen(topic: topic),
-                        ),
-                      );
-                    },
+                    onTap: () => _openRecommendedTopic(context),
                   );
                 },
               ),

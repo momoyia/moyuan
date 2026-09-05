@@ -20,11 +20,15 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool _agreed = false;
 
-  Future<void> _openAgreement(String title, String url) async {
+  Future<void> _openAgreement(String title, {String? url, String? assetPath}) async {
     await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => AgreementWebScreen(title: title, url: url),
+        builder: (_) => AgreementWebScreen(
+          title: title,
+          url: url,
+          assetPath: assetPath,
+        ),
       ),
     );
   }
@@ -208,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(fontSize: 12, color: AppColors.slate500, height: 1.6),
                         ),
                         GestureDetector(
-                          onTap: () => _openAgreement('用户协议', AppInfo.userAgreementUrl),
+                          onTap: () => _openAgreement('用户协议', assetPath: AppInfo.userAgreementAsset),
                           child: const Text(
                             '《用户协议》',
                             style: TextStyle(
@@ -224,7 +228,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(fontSize: 12, color: AppColors.slate500, height: 1.6),
                         ),
                         GestureDetector(
-                          onTap: () => _openAgreement('隐私政策', AppInfo.privacyPolicyUrl),
+                          onTap: () => _openAgreement('隐私政策', assetPath: AppInfo.privacyPolicyAsset),
                           child: const Text(
                             '《隐私政策》',
                             style: TextStyle(

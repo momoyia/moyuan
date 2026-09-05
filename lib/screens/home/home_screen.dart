@@ -6,7 +6,6 @@ import 'package:peiban_app/screens/home/check_in_sheet.dart';
 import 'package:peiban_app/screens/home/daily_plan_screen.dart';
 import 'package:peiban_app/screens/home/course_detail_screen.dart';
 import 'package:peiban_app/screens/home/course_list_screen.dart';
-import 'package:peiban_app/screens/home/workout_player_screen.dart';
 import 'package:peiban_app/services/app_state.dart';
 import 'package:peiban_app/widgets/category_chip.dart';
 import 'package:peiban_app/widgets/course_card.dart';
@@ -211,37 +210,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ],
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => WorkoutPlayerScreen(
-                                      course: todayCourse,
-                                      appState: widget.appState,
-                                      onCompleted: _refreshState,
-                                    ),
-                                  ),
-                                );
-                                await _refreshState();
-                              },
-                              child: Container(
-                                width: 44,
-                                height: 44,
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.22),
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(
-                                    color: Colors.white.withOpacity(0.3),
-                                  ),
-                                ),
-                                child: const Icon(
-                                  Icons.play_arrow_rounded,
-                                  color: Colors.white,
-                                  size: 28,
-                                ),
                               ),
                             ),
                           ],

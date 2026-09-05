@@ -27,25 +27,11 @@ class CourseCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Stack(
-                children: [
-                  Image.asset(
-                    course.imageAsset,
-                    width: 96,
-                    height: 96,
-                    fit: BoxFit.cover,
-                  ),
-                  Positioned.fill(
-                    child: Container(
-                      color: Colors.black.withOpacity(0.2),
-                      child: const Icon(
-                        Icons.play_arrow_rounded,
-                        color: Colors.white,
-                        size: 28,
-                      ),
-                    ),
-                  ),
-                ],
+              child: Image.asset(
+                course.imageAsset,
+                width: 96,
+                height: 96,
+                fit: BoxFit.cover,
               ),
             ),
             const SizedBox(width: 14),

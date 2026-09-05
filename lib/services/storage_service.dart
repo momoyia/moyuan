@@ -18,6 +18,7 @@ class StorageService {
   static const String _mutedUsersKey = 'muted_users';
   static const String _loggedInKey = 'is_logged_in';
   static const String _onboardingCompletedKey = 'onboarding_completed';
+  static const String _featuredWorkoutFocusKey = 'featured_workout_focus';
 
   static Future<UserProfile> loadProfile() async {
     final prefs = await SharedPreferences.getInstance();
@@ -158,6 +159,16 @@ class StorageService {
     await prefs.setBool(_onboardingCompletedKey, value);
   }
 
+  static Future<String?> loadFeaturedWorkoutFocus() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_featuredWorkoutFocusKey);
+  }
+
+  static Future<void> saveFeaturedWorkoutFocus(String focusId) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_featuredWorkoutFocusKey, focusId);
+  }
+
   static Future<void> clearAll() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_profileKey);
@@ -169,5 +180,14 @@ class StorageService {
     await prefs.remove(_mutedUsersKey);
     await prefs.remove(_loggedInKey);
     await prefs.remove(_onboardingCompletedKey);
+    await prefs.remove(_featuredWorkoutFocusKey);
+    await prefs.remove('featured_joined_topics');
+    await prefs.remove('featured_topic_phases');
+    await prefs.remove('featured_liked_articles');
+    await prefs.remove('featured_bookmarked_articles');
+    await prefs.remove('featured_action_practice');
+    await prefs.remove('featured_article_takeaways');
+    await prefs.remove('featured_action_want_train');
+    await prefs.remove('featured_action_calendar');
   }
 }

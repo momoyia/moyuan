@@ -29,6 +29,27 @@ class MockData {
     '康复拉伸',
   ];
 
+  static const List<Map<String, dynamic>> workoutFocusOptions = [
+    {
+      'id': 'abs',
+      'label': '腹部核心',
+      'subtitle': '马甲线 · 腹肌雕刻',
+      'icon': Icons.self_improvement_outlined,
+    },
+    {
+      'id': 'cardio',
+      'label': '全身燃脂',
+      'subtitle': 'HIIT · 高效减脂',
+      'icon': Icons.local_fire_department_outlined,
+    },
+    {
+      'id': 'stretch',
+      'label': '肩颈拉伸',
+      'subtitle': '久坐康复 · 体态改善',
+      'icon': Icons.spa_outlined,
+    },
+  ];
+
   static const List<String> recipeCategories = [
     '减脂主食',
     '高纤沙拉',
@@ -448,10 +469,21 @@ class MockData {
   static final List<WorkoutAction> actions = [
     WorkoutAction(
       id: 'action_burpee',
-      name: '波比跳 (Burpees)',
+      name: '波比跳燃脂特训',
       subtitle: '全身复合燃脂动作，消耗极大',
       sets: '3组 × 15次',
       imageAsset: AppAssets.actionBurpee,
+      rating: 9.1,
+      difficultyLabel: 'K3 进阶',
+      durationMinutes: 12,
+      caloriesMin: 68,
+      caloriesMax: 95,
+      authorName: '教练小林',
+      authorAvatar: AppAssets.avatarAnimal,
+      description: '全身复合动作，结合深蹲、俯卧撑与跳跃，快速提升心率。适合有一定基础的用户，注意落地缓冲与核心收紧，循序渐进增加次数。',
+      commentCount: 286,
+      practicedLabel: '8.6万',
+      equipment: const ['瑜伽垫', '运动手环'],
       tips: ['落地时膝盖微屈缓冲', '核心收紧保持背部平直', '循序渐进增加次数'],
       targetMuscles: ['股四头肌', '臀大肌', '胸大肌', '三角肌', '核心肌群'],
       biomechanics: '波比跳是深蹲、平板支撑、跳跃的复合动作。下蹲阶段髋膝同时屈曲，推起阶段通过髋伸展产生爆发力，落地时离心收缩吸收冲击力。全身多关节协同，能量消耗显著高于孤立动作。',
@@ -474,10 +506,21 @@ class MockData {
     ),
     WorkoutAction(
       id: 'action_plank',
-      name: '平板支撑 (Plank)',
+      name: '平板支撑核心强化',
       subtitle: '核心肌群强化，紧致腰腹线条',
       sets: '4组 × 60秒',
       imageAsset: AppAssets.actionPlank,
+      rating: 8.8,
+      difficultyLabel: 'K2 初学',
+      durationMinutes: 10,
+      caloriesMin: 35,
+      caloriesMax: 52,
+      authorName: '瑜伽老师Amy',
+      authorAvatar: AppAssets.avatars[2],
+      description: '低冲击核心训练，通过等长收缩激活腹横肌与多裂肌。全程保持脊柱中立，均匀呼吸，适合新手建立核心控制能力。',
+      commentCount: 412,
+      practicedLabel: '12.3万',
+      equipment: const ['瑜伽垫'],
       tips: ['肘部位于肩正下方', '臀部不要翘起或下沉', '均匀呼吸不要憋气'],
       targetMuscles: ['腹横肌', '腹直肌', '竖脊肌', '臀大肌', '前锯肌'],
       biomechanics: '平板支撑是等长收缩训练，腹横肌和多裂肌作为深层稳定肌持续发力，维持脊柱中立位。肘撑相比直臂支撑，减少了肩关节负荷，更适合初学者激活核心。',
@@ -500,10 +543,21 @@ class MockData {
     ),
     WorkoutAction(
       id: 'action_squat',
-      name: '深蹲跳 (Jump Squat)',
+      name: '深蹲跳下肢塑形',
       subtitle: '爆发力与下肢塑形',
       sets: '4组 × 12次',
       imageAsset: AppAssets.actionSquat,
+      rating: 8.6,
+      difficultyLabel: 'K2 初学',
+      durationMinutes: 14,
+      caloriesMin: 54,
+      caloriesMax: 80,
+      authorName: '体能教练阿杰',
+      authorAvatar: AppAssets.avatars[3],
+      description: '结合离心下蹲与爆发起跳，训练下肢力量与心肺耐力。注意膝盖与脚尖同向，落地轻柔缓冲，大体重者可先做普通深蹲再进阶。',
+      commentCount: 329,
+      practicedLabel: '6.8万',
+      equipment: const ['瑜伽垫', '运动鞋'],
       tips: ['下蹲时膝盖与脚尖同向', '起跳轻盈落地轻柔', '感到不适立即停止'],
       targetMuscles: ['股四头肌', '臀大肌', '腘绳肌', '小腿三头肌'],
       biomechanics: '深蹲跳结合了离心（下蹲）、向心（起跳）与弹性反弹三个阶段。下蹲时肌肉储存弹性势能，起跳时快速伸展髋膝踝三关节，落地时通过离心收缩吸收冲击，训练下肢爆发力与反应速度。',
@@ -785,6 +839,18 @@ HIIT 能在 20-30 分钟内达到较高能量消耗，并在运动后数小时�
       if (topic.id == id) return topic;
     }
     return null;
+  }
+
+  static FeaturedTopic recommendedTopicForFocus(String focusId) {
+    switch (focusId) {
+      case 'cardio':
+        return topics.firstWhere((topic) => topic.id == 'topic_cardio');
+      case 'stretch':
+        return topics.firstWhere((topic) => topic.id == 'topic_stretch');
+      case 'abs':
+      default:
+        return topics.firstWhere((topic) => topic.id == 'topic_abs');
+    }
   }
 
   static WorkoutAction? actionById(String id) {

@@ -1,11 +1,11 @@
 {
-    "name": "peiban_app",
-    "short_name": "peiban_app",
+    "name": "陌缘",
+    "short_name": "陌缘",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "陌缘 - 健身减脂训练计划 App",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

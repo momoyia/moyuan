@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:peiban_app/constants/app_assets.dart';
 import 'package:peiban_app/constants/app_colors.dart';
+import 'package:peiban_app/constants/app_info.dart';
 import 'package:peiban_app/screens/auth/login_screen.dart';
 import 'package:peiban_app/screens/auth/onboarding_screen.dart';
 import 'package:peiban_app/screens/main_screen.dart';
@@ -52,14 +53,28 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Center(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(24),
-          child: Image.asset(
-            AppAssets.appIcon,
-            width: 96,
-            height: 96,
-            fit: BoxFit.cover,
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(24),
+              child: Image.asset(
+                AppAssets.appIcon,
+                width: 96,
+                height: 96,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              AppInfo.name,
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.w800,
+                color: AppColors.slate900,
+              ),
+            ),
+          ],
         ),
       ),
     );

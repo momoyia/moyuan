@@ -4,7 +4,7 @@ class AppAssets {
   static const String _base = 'assets/images';
 
   static const String avatarAnimal = '$_base/avatar_animal.jpg';
-  static const String appIcon = '$_base/avatar_cartoon.jpg';
+  static const String appIcon = '$_base/moyuan logo.png';
 
   static const List<String> avatars = [
     '$_base/avatar_animal.jpg',

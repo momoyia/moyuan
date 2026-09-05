@@ -1,8 +1,8 @@
 class AppInfo {
   AppInfo._();
 
-  static const String name = '相恋';
-  static const String slogan = '陪你练，也陪你变好';
-  static const String userAgreementUrl = 'https://sites.google.com/view/peibanyhzc/';
-  static const String privacyPolicyUrl = 'https://sites.google.com/view/peibanyszc/';
+  static const String name = '陌缘';
+  static const String slogan = '科学训练，遇见更好的自己';
+  static const String userAgreementAsset = 'assets/legal/user_agreement.html';
+  static const String privacyPolicyAsset = 'assets/legal/privacy_policy.html';
 }

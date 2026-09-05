@@ -1,5 +1,5 @@
 name: peiban_app
-description: "陪伴 - 健身减脂训练计划 App"
+description: "陌缘 - 健身减脂训练计划 App"
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -24,3 +24,4 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/legal/

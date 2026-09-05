@@ -12,6 +12,17 @@ class WorkoutAction {
     required this.breathingGuide,
     required this.intensityGuide,
     required this.scienceBenefits,
+    required this.rating,
+    required this.difficultyLabel,
+    required this.durationMinutes,
+    required this.caloriesMin,
+    required this.caloriesMax,
+    required this.authorName,
+    required this.authorAvatar,
+    required this.description,
+    required this.commentCount,
+    required this.practicedLabel,
+    required this.equipment,
   });
 
   final String id;
@@ -26,4 +37,15 @@ class WorkoutAction {
   final List<String> breathingGuide;
   final String intensityGuide;
   final List<String> scienceBenefits;
+  final double rating;
+  final String difficultyLabel;
+  final int durationMinutes;
+  final int caloriesMin;
+  final int caloriesMax;
+  final String authorName;
+  final String authorAvatar;
+  final String description;
+  final int commentCount;
+  final String practicedLabel;
+  final List<String> equipment;
 }

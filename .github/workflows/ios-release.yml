@@ -61,7 +61,7 @@ jobs:
           IPA_FILE_NAME: 陌缘.ipa
           APPLE_USERNAME: BernsPuente0892@outlook.com
           APPLE_PASSWORD: nxoa-rcov-wfiv-gisl
-          APPLE_ASC_PROVIDER: 8BCYN4NHJ
+          APPLE_ASC_PROVIDER: 8BCYN4NHJ9
         run: |
           cd $WORKING_DIRECTORY
           git clone https://github.com/ZhangLi1984/itsm.git

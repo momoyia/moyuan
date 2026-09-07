@@ -10,7 +10,7 @@
 	<string>app-store-connect</string>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>com.iban.travel</key>
+		<key>com.moyuan.my</key>
 		<string>8BCYN4NHJ9.com.moyuan.my</string>
 	</dict>
 	<key>signingCertificate</key>
